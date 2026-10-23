@@ -20,7 +20,7 @@ export function undo(state,id){return {...state,records:state.records.filter(r=>
 export function load(raw){
  if(!raw)return initialState();
  const s=JSON.parse(raw);
- if(s.version!==1||!Array.isArray(s.records)||!(s.profile===null||(typeof s.profile?.name==='string'&&typeof s.profile?.goal==='string')))throw Error('保存データの形式が対応していません。');
+ if(s.version!==1||!Array.isArray(s.records)||!(s.profile===null||(typeof s.profile?.name==='string'&&typeof s.profile?.goal==='string'&&(s.profile.traits===undefined||typeof s.profile.traits==='string'))))throw Error('保存データの形式が対応していません。');
  const seen=new Set();
  for(const r of s.records){if(!quests.some(q=>q.id===r.questId)||typeof r.id!=='string'||typeof r.note!=='string'||typeof r.difficulty!=='string'||typeof r.partial!=='boolean'||!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||seen.has(`${r.date}/${r.questId}`))throw Error('保存データの記録を読み込めません。');seen.add(`${r.date}/${r.questId}`);}
  return s;

@@ -1,0 +1,48 @@
+.traits-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-top: 22px;
+  padding: 20px 24px;
+  border-left: 3px solid #9ab47e;
+}
+
+.traits-card > div {
+  min-width: 120px;
+}
+
+.traits-card span {
+  color: #9aa88a;
+  font-size: 8px;
+  letter-spacing: 1.6px;
+}
+
+.traits-card h2 {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.traits-card p {
+  color: #788772;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.field-help {
+  display: block;
+  margin-top: 7px;
+  color: #9da890;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .traits-card {
+    display: block;
+  }
+
+  .traits-card p {
+    margin-top: 10px;
+  }
+}
